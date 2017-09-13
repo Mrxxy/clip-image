@@ -363,6 +363,15 @@ public class ClipImageView extends ImageView implements
     }
 
     /**
+     * 适配小米、魅族手机照片旋转问题
+     * @param path
+     */
+    public void setImagePath(String path) {
+        Bitmap bitmap = ImageUtils.rotateBitmap(path);
+        super.setImageBitmap(bitmap);
+    }
+
+    /**
      * 这里没有使用post方式,因为图片会有明显的从初始位置移动到需要缩放的位置
      */
     private void postResetImageMatrix() {
